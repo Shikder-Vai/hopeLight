@@ -15,14 +15,14 @@ const Navbar = () => {
   };
   return (
     <div className="sticky top-0">
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#151515] mb-0">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-400 mb-0">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <ActiveLink
               className="leading-relaxed font-bold text-lg inline-block mr-4"
               to="/"
             >
-              <h1 className=" text-orange-400">NS MOBILE HOUSE</h1>
+              <h1 className=" text-orange-400">HopeLight.co</h1>
             </ActiveLink>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -71,7 +71,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <ActiveLink
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  to="/home"
+                  to="/"
                 >
                   HOME
                 </ActiveLink>
@@ -79,18 +79,18 @@ const Navbar = () => {
               <li className="nav-item">
                 <ActiveLink
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  to="/inventory"
+                  to="/contactUs"
                 >
-                  INVENTORY
+                  Contact Us
                 </ActiveLink>
               </li>
               {user ? (
                 <li className="nav-item">
                   <ActiveLink
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    to="/manageInventory/mangeItems"
+                    to="/portfolio"
                   >
-                    MANAGE INVENTORY
+                    PORTFOLIO
                   </ActiveLink>
                 </li>
               ) : (
@@ -129,7 +129,7 @@ const Navbar = () => {
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                     to="/signUp"
                   >
-                    REGESTER
+                    SignUp
                   </ActiveLink>
                 )}
               </li>
