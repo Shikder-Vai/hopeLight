@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   return (
     <div className="sticky top-0">
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-400 mb-0">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-500 mb-0">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <ActiveLink
