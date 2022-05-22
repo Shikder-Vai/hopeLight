@@ -71,9 +71,9 @@ const Navbar = () => {
               <li className="nav-item">
                 <ActiveLink
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  to="/"
+                  to="/products"
                 >
-                  HOME
+                  PRODUCTS
                 </ActiveLink>
               </li>
               <li className="nav-item">

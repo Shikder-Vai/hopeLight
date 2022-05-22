@@ -9,13 +9,15 @@ import Blogs from "./Components/Blogs/Blogs";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
+import AllProducts from "./Components/AllProducts/AllProducts";
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home></Home>} />
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/products" element={<AllProducts />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/portfolio" element={<Portfolio />} />
