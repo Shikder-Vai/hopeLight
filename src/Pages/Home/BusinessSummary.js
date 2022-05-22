@@ -9,7 +9,7 @@ const BusinessSummary = () => {
         </h1>
       </div>
       <div className="flex justify-center items-center">
-        <div class="stats shadow">
+        <div class="stats shadow -z-30">
           <div class="stat">
             <div class="stat-figure text-purple-600">
               <svg

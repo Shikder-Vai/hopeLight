@@ -10,6 +10,7 @@ import Portfolio from "./Components/Portfolio/Portfolio";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
 import AllProducts from "./Components/AllProducts/AllProducts";
+import Footer from "./Pages/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );

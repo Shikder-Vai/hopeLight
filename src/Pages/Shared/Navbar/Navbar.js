@@ -14,7 +14,7 @@ const Navbar = () => {
     toast.success("Logout success");
   };
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-30">
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-500 mb-0">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
