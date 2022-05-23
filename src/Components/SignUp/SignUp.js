@@ -1,52 +1,117 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/home";
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  let errorMessage;
+
+  if (loading || updating) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    fetch("https://ns-mobile-house.herokuapp.com/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: user?.user?.email,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("accessToken", data?.token);
+        toast.success("Welcome To HopeLight.co");
+        navigate(from, { replace: true });
+      });
+  }
+  if (error) {
+    errorMessage = <p className="text-danger">{error?.message} </p>;
+  }
+
+  const handleFormRegister = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    console.log("Updated profile");
+    navigate("/home");
+  };
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex justify-center items-center">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body">
-            <form>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Your name</span>
+    <div className="hero min-h-screen bg-cyan-100">
+      <div className="hero-content flex justify-center items-center w-80">
+        <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-gradient-to-r from-cyan-500 to-blue-500">
+          <div className="card-body w-full max-w-md">
+            <form onSubmit={handleFormRegister}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white text-md font-semibold">
+                    Your name
+                  </span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  class="input input-bordered"
+                  className="input input-bordered"
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Email</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white text-md font-semibold">
+                    Email
+                  </span>
                 </label>
                 <input
                   type="text"
                   name="email"
                   placeholder="email"
-                  class="input input-bordered"
+                  className="input input-bordered"
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Password</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white text-md font-semibold">
+                    Password
+                  </span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="password"
-                  class="input input-bordered"
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  className="input input-bordered"
                 />
-                <label class="label">
-                  <Link to={"/login"} class="label-text-alt link link-hover">
+                <label className="label">
+                  <Link
+                    to={"/login"}
+                    className="label-text-alt text-white text-md font-semibold link link-hover"
+                  >
                     Already have an account? Login.
                   </Link>
                 </label>
               </div>
-              <div class="form-control mt-6">
-                <button type="submit" class="btn btn-primary">
+              <div className="form-control mt-6">
+                {errorMessage}
+                <button
+                  type="submit"
+                  className="btn text-white text-md font-bold btn-primary"
+                >
                   Sign Up
                 </button>
               </div>
