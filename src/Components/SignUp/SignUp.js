@@ -34,7 +34,7 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         localStorage.setItem("accessToken", data?.token);
-        toast.success("Welcome To HopeLight.co");
+        toast.success("Registration done");
         navigate(from, { replace: true });
       });
   }
