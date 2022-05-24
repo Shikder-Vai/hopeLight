@@ -12,6 +12,7 @@ import SignUp from "./Components/Authentication/SignUp/SignUp";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import Footer from "./Pages/Shared/Footer/Footer";
 import NotFound from "./Pages/Shared/NotFound";
+import PurchasePage from "./Components/PurchasePage/PurchasePage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/products" element={<AllProducts />} />
+        <Route path="/products/:productId" element={<PurchasePage />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/portfolio" element={<Portfolio />} />
