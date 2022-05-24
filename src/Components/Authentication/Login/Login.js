@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import google from "../../Assest/google.png";
-import auth from "../../firebase.init";
+import google from "../../../Assest/google.png";
+import auth from "../../../firebase.init";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import Loading from "../Loading/Loading";
+import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -7,10 +7,11 @@ import Home from "./Pages/Home/Home";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Blogs from "./Components/Blogs/Blogs";
 import Portfolio from "./Components/Portfolio/Portfolio";
-import Login from "./Components/Login/Login";
-import SignUp from "./Components/SignUp/SignUp";
+import Login from "./Components/Authentication/Login/Login";
+import SignUp from "./Components/Authentication/SignUp/SignUp";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import Footer from "./Pages/Shared/Footer/Footer";
+import NotFound from "./Pages/Shared/NotFound";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
       <ToastContainer />
