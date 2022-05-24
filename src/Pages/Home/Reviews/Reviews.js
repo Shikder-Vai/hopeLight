@@ -5,8 +5,8 @@ import Review from "./Review/Review";
 const Reviews = () => {
   const [reviews] = useReviews();
   return (
-    <div className=" my-7">
-      <div className=" my-7 flex justify-center items-center">
+    <div className=" ">
+      <div className=" flex justify-center items-center">
         <h1 className="text-2xl mt-5 underline text-sky-300 ">
           Customer Reviews
         </h1>
