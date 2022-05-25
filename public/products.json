@@ -1,6 +1,6 @@
 [
     {
-      "_id": 1,
+      
       "name": "Rode Cutting Saw",
       "img": "https://i.ibb.co/Vjmqw6p/Rode-Cutting-Saw.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -9,7 +9,7 @@
       "price": 15
     },
     {
-      "_id": 2,
+      
       "name": "Straight Pipe Wrenches",
       "img": "https://i.ibb.co/WFv5KKN/Straight-Pipe-Wrenches.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -18,7 +18,7 @@
       "price": 15
     },
     {
-      "_id": 3,
+      
       "name": "Drums 2013-14 CAL",
       "img": "https://i.ibb.co/GTNGx9Q/Drums-2013-14-CAL-72dpi.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -27,7 +27,7 @@
       "price": 15
     },
     {
-      "_id": 4,
+      
       "name": "KJ3100 Low 72dpi",
       "img": "https://i.ibb.co/Qj40NyX/KJ3100-Low-72dpi.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -36,7 +36,7 @@
       "price": 15
     },
     {
-    "_id": 5,
+    
     "name": "Sectional Stainless",
     "img": "https://i.ibb.co/ynDXy52/Sectional-Stainless-2013-14-72dpi.jpg",
     "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -45,7 +45,7 @@
     "price": 15
     },
     {
-      "_id": 6,
+      
       "name": "918-Roll Groover",
       "img": "https://i.ibb.co/vZ0YQ4d/918-Roll-Groover-72dpi.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -54,7 +54,7 @@
       "price": 15
     },
     {
-      "_id": 7,
+      
       "name": "Groovers Rolling",
       "img": "https://i.ibb.co/sq6nJQy/Groovers-Rolling-2013-14-72dpi.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -63,7 +63,7 @@
       "price": 15
     },
     {
-      "_id": 8,
+      
       "name": "Threaders REV 2013-14",
       "img": "https://i.ibb.co/QbfCQZ5/Threaders-REV-2013-14-72dpi.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
@@ -72,7 +72,7 @@
       "price": 15
     },
     {
-      "_id": 9,
+      
       "name": "Transportable Pipe Beveller",
       "img": "https://i.ibb.co/RN614kW/B-500-Transportable-Pipe-Beveller.jpg",
       "description": "Best of all: they're built to last, no matter how many times you jam a cable down an iron pipe or drag a reel out of a truck.",
