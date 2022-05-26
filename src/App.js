@@ -26,6 +26,7 @@ import AddAReview from "./Pages/Dashboard/AddAReview";
 import Users from "./Pages/Dashboard/Users";
 import ManageProduct from "./Pages/Dashboard/ManageProduct";
 import Payment from "./Pages/Dashboard/Payment";
+import AllReviews from "./Components/AllReviews/AllReviews";
 
 function App() {
   return (
@@ -34,8 +35,23 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/products" element={<AllProducts />} />
-        <Route path="/products/:productId" element={<PurchasePage />} />
+        <Route
+          path="/products"
+          element={
+            <RequireAuth>
+              <AllProducts />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/products/:productId"
+          element={
+            <RequireAuth>
+              <PurchasePage />
+            </RequireAuth>
+          }
+        />
+
         <Route path="payment/:productId" element={<Payment />} />
         <Route
           path="dashboard"
@@ -64,6 +80,7 @@ function App() {
           />
         </Route>
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/allreviews" element={<AllReviews />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<Login />} />
