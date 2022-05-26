@@ -56,10 +56,10 @@ const Portfolio = () => {
           </div>
           <div className=" ml-10 p-5 rounded-xl flex flex-row items-center text-lg space-x-5 h-9 bg-cyan-300 hover:bg-cyan-200">
             <p className="font-bold">1.</p>
-            <h1 className="  text-indigo-400 font-bold">Ns Mobile House</h1>
+            <h1 className="  text-indigo-400 font-bold">Awesome Photographi</h1>
             <a
               className=" text-blue-500"
-              href="https://ns-mobile-house.netlify.app"
+              href=" https://awesome-photography-e3387.web.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -68,10 +68,10 @@ const Portfolio = () => {
           </div>
           <div className=" ml-10 p-5 rounded-xl flex flex-row items-center text-lg space-x-5 h-9 bg-cyan-300 hover:bg-cyan-200">
             <p className="font-bold">1.</p>
-            <h1 className="  text-indigo-400 font-bold">Ns Mobile House</h1>
+            <h1 className="  text-indigo-400 font-bold">Food Reviews</h1>
             <a
               className=" text-blue-500"
-              href="https://ns-mobile-house.netlify.app"
+              href="https://ns-food-reviews.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
             >

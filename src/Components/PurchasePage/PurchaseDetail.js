@@ -51,7 +51,7 @@ const PurchaseDetail = () => {
       swal("Oops!", "You can't buy less than the minimum quantity", "error");
       return;
     } else {
-      fetch(` http://localhost:5000/purchase/${productId}`, {
+      fetch(` https://hope-light.herokuapp.com/purchase/${productId}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -73,7 +73,7 @@ const PurchaseDetail = () => {
   };
 
   useEffect(() => {
-    fetch(` http://localhost:5000/product/${productId}`, {
+    fetch(` https://hope-light.herokuapp.com/product/${productId}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

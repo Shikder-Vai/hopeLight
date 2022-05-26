@@ -8,7 +8,7 @@ const MyOrder = () => {
   const email = user?.email;
 
   console.log(email);
-  fetch(` http://localhost:5000/purchase/${email}`, {
+  fetch(` https://hope-light.herokuapp.com/purchase/${email}`, {
     method: "GET",
     headers: {
       "content-type": "application/json",

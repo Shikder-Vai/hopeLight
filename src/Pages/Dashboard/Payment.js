@@ -13,7 +13,7 @@ const Payment = () => {
   console.log(products);
 
   useEffect(() => {
-    fetch(` http://localhost:5000/purchase/${productId}`, {
+    fetch(` https://hope-light.herokuapp.com/purchase/${productId}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

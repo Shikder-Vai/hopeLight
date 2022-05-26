@@ -8,7 +8,7 @@ const PurchasePage = () => {
   const [refresh] = useState(0);
   const { productId } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${productId}`)
+    fetch(`https://hope-light.herokuapp.com/product/${productId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productId, refresh]);
