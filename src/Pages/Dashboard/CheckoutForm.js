@@ -1,7 +1,7 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init";
+import auth from "../../firebase.init";
 
 const CheckoutForm = ({ product }) => {
   const stripe = useStripe();
@@ -82,7 +82,7 @@ const CheckoutForm = ({ product }) => {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
       })

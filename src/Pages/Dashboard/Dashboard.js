@@ -1,12 +1,13 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
-import auth from "../../../firebase.init";
-import useAdmin from "../Hooks/useAdmin";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+  console.log(admin);
   return (
     <div>
       <h2 className="text-center">Welcome to dashboard</h2>
@@ -38,27 +39,26 @@ const Dashboard = () => {
             <li>
               <Link to="/dashboard/addReview">Add A Review</Link>
             </li>
-            
 
             {admin && (
-            <>
-              <li>
-              <Link to="/dashboard/allUser">All Users</Link>
-            </li>
-             
-              <li>
-                <Link to="/dashboard/manageOrder">Manage All Orders</Link>
-              </li>
+              <>
+                <li>
+                  <Link to="/dashboard/allUser">All Users</Link>
+                </li>
 
-              <li>
-                <Link to="/dashboard/addProduct">Add A product</Link>
-              </li>
-             
-              <li>
-                <Link to="/dashboard/manageProduct">Manage Product</Link>
-              </li>
-            </>
-)}
+                <li>
+                  <Link to="/dashboard/manageOrder">Manage All Orders</Link>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/addProduct">Add A product</Link>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/manageProduct">Manage Product</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

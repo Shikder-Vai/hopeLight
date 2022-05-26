@@ -16,16 +16,16 @@ const IntroducingPage = () => {
     }
   };
   return (
-    <div class="hero min-h-screen my-14 ">
-      <div class="hero-content flex-col lg:flex-row md:space-x-10">
+    <div className="hero min-h-screen my-14 ">
+      <div className="hero-content flex-col lg:flex-row md:space-x-10">
         <img
           src={imageT}
-          class="md:max-w-sm sm:max-w-sm rounded-lg shadow-2xl"
+          className="md:max-w-sm sm:max-w-sm rounded-lg shadow-2xl"
           alt=""
         />
         <div className="md:max-w-md sm:max-w-sm">
-          <h1 class="text-5xl font-bold">Built for Maximum Uptime</h1>
-          <p class="py-6">
+          <h1 className="text-5xl font-bold">Built for Maximum Uptime</h1>
+          <p className="py-6">
             You can't fix what you can't look at; RIDGID gives you a range of
             options to find, see and pinpoint exactly where a problem lies with
             industry-leading precision. Our reels, imaging cameras, monitors,
@@ -35,7 +35,7 @@ const IntroducingPage = () => {
 
           <button
             onClick={() => getStartedbtn()}
-            class="btn text-white uppercase font-bold bg-gradient-to-r from-secondary to-primary"
+            className="btn text-white uppercase font-bold bg-gradient-to-r from-secondary to-primary"
           >
             Get Started
           </button>

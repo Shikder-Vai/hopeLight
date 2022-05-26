@@ -1,8 +1,8 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../../firebase.init";
 import swal from "sweetalert";
+import auth from "../../firebase.init";
 
 const AddProduct = () => {
   const [user] = useAuthState(auth);

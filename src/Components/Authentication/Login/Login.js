@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../../Assest/google.png";
 import auth from "../../../firebase.init";
@@ -9,6 +9,8 @@ import {
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import Loading from "../../Loading/Loading";
+import useTokens from "../../../hooks/useTokens";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,40 +22,41 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-  let errorMessage;
-  let errorMessage1;
+  const [token] = useTokens(user || user1);
+
+  if (token) {
+    navigate("/");
+  }
+
+  let signInError;
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
+
+  if (error || error1) {
+    signInError = (
+      <p className="text-red-500">
+        {" "}
+        <small>{error?.message || error1?.message}</small>{" "}
+      </p>
+    );
+  }
 
   if (loading || sending || loading1) {
     return <Loading></Loading>;
   }
-  if (user || user1) {
-    fetch("https://ns-mobile-house.herokuapp.com/login", {
-      method: "POST",
-      body: JSON.stringify({
-        email: user?.user?.email,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("accessToken", data?.token);
-        toast.success("Welcome To HopeLight.co");
-        navigate(from, { replace: true });
-      });
-  }
-  if (error || error1) {
-    errorMessage = <p className="text-red-500">{error?.message} </p>;
-    errorMessage1 = <p className=" text-red-500">{error?.message} </p>;
-  }
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
-    signInWithEmailAndPassword(email, password);
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
   };
 
   const resetPassword = async () => {
@@ -83,25 +86,70 @@ const Login = () => {
                   Login
                 </h1>
               </div>
-              <form onSubmit={handleLogin}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 {/* <!-- Email input --> */}
                 <div className="mb-6">
                   <input
-                    type="text"
-                    name="email"
+                    type="email"
+                    placeholder="Your Email"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Email address"
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "Email is required",
+                      },
+                      pattern: {
+                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                        message: "Provide a valid email",
+                      },
+                    })}
                   />
+                  <label className="label">
+                    {errors.email?.type === "required" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.email.message}
+                      </span>
+                    )}
+                    {errors.email?.type === "pattern" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.email.message}
+                      </span>
+                    )}
+                  </label>
                 </div>
 
                 {/* <!-- Password input --> */}
                 <div className="mb-6">
+                  <label className="label">
+                    <span className="label-text">Password </span>
+                  </label>
                   <input
                     type="password"
-                    name="password"
-                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Password"
+                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "Password is required",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "Must be 6 character or longer",
+                      },
+                    })}
                   />
+                  <label className="label">
+                    {errors.password?.type === "required" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.password.message}
+                      </span>
+                    )}
+                    {errors.password?.type === "minLength" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.password.message}
+                      </span>
+                    )}
+                  </label>
                 </div>
 
                 <div className="flex justify-end items-center mb-6">
@@ -112,6 +160,7 @@ const Login = () => {
                     Forgot password?
                   </button>
                 </div>
+                {signInError}
 
                 {/* <!-- Submit button --> */}
                 <button
@@ -126,8 +175,7 @@ const Login = () => {
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">OR</p>
                 </div>
-                {errorMessage}
-                {errorMessage1}
+
                 <button
                   onClick={() => signInWithGoogle()}
                   className="px-7 py-3 btn text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"

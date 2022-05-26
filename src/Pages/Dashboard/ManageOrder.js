@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
-import useAdmin from "../Hooks/useAdmin";
+// import useAdmin from "../../Hooks/useAdmin";
 import OrderTable from "./OrderTable";
 
 const ManageOrder = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(" http://localhost:5000/purchase" , {
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        }
+    fetch(" http://localhost:5000/purchase", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
         console.log(orders);
       });
-  }, []);
+  }, [orders]);
 
   return (
     <div>

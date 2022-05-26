@@ -1,11 +1,11 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../../firebase.init";
+// import auth from "../../../firebase.init";
 import swal from "sweetalert";
 
 const AddAReviw = () => {
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

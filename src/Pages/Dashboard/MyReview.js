@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ReviewCard from "../Reviews/ReviewCard";
+import ReviewCard from "../Home/Reviews/Review/Review";
 
 const MyReview = () => {
   const [reviews, setReviews] = useState([0]);

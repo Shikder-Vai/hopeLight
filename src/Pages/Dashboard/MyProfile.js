@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../../firebase.init";
 import { useQuery } from "react-query";
-import Loading from "../Shared/Loading";
+import Loading from "../../Components/Loading/Loading";
+import auth from "../../firebase.init";
 
 const MyProfile = (e) => {
   const [user] = useAuthState(auth);
@@ -11,7 +11,6 @@ const MyProfile = (e) => {
   const { isLoading, refetch } = useQuery();
 
   const email = user?.email;
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,28 +50,21 @@ const MyProfile = (e) => {
 
   const { register } = useForm();
   const [profile, setProfile] = useState();
-  // if(isLoading){
-  //   return <Loading/>
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
 
-  
-    fetch(` http://localhost:5000/profile/${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        
-        setProfile(data);
-      });
-  
-
-  
-  
-
+  fetch(` http://localhost:5000/profile/${email}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setProfile(data);
+    });
   return (
     <div className="flex justify-center items-center">
       <div className="m-5">
-        <div class="card w-96 bg-base-300 shadow-xl">
-          <div class="card-body">
-            <h2 class="card-title"> Name : {profile?.name}</h2>
+        <div className="card w-96 bg-base-300 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title"> Name : {profile?.name}</h2>
             <p>Education : {profile?.education}</p>
             <p>Job : {profile?.job}</p>
             <p>City : {profile?.city}</p>

@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
-import useAdmin from "../Hooks/useAdmin";
+import useAdmin from "../../hooks/useAdmin";
 
-const OrderTable = ({order}) => {
-    const {_id} = order;
-    const [accept ,setAccept] = useState(false);
-    const [admin] = useAdmin()
-    const handleAccept = (e) => {
-        e.preventDefault();
-        
-        
-    }
+const OrderTable = ({ order }) => {
+  const { _id } = order;
+  const [accept, setAccept] = useState(false);
+  const [admin] = useAdmin();
+  const handleAccept = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <tbody>
             <tr>
-              
               <td>{order?.name}</td>
               <td>{order?.productName}</td>
               <td>{order?.price}</td>
-               <button onClick={handleAccept} class="btn btn-xs mt-4">Accept</button>
-              
-             
-
+              <button onClick={handleAccept} className="btn btn-xs mt-4">
+                Accept
+              </button>
             </tr>
           </tbody>
         </table>

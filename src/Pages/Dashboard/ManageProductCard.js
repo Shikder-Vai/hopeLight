@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import swal from "sweetalert";
-import auth from "../../../firebase.init";
-import useAdmin from "../Hooks/useAdmin";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const ManageProductCard = ({ product, index }) => {
   const { name, price, quantity, _id } = product;
@@ -46,15 +46,15 @@ const ManageProductCard = ({ product, index }) => {
   };
   return (
     <div>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <tbody>
             <tr>
               <th>{index + 1}</th>
               <td>{name}</td>
               <td>{price}</td>
               <td>{quantity}</td>
-              <button onClick={handleDelete} class="btn btn-xs mt-4">
+              <button onClick={handleDelete} className="btn btn-xs mt-4">
                 Delete
               </button>
             </tr>

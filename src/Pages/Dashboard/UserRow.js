@@ -1,6 +1,6 @@
 import React from "react";
 import swal from "sweetalert";
-import useAdmin from "../Hooks/useAdmin";
+import useAdmin from "../../hooks/useAdmin";
 
 const UserRow = ({ user, refetch }) => {
   const { email, role } = user;
@@ -63,13 +63,13 @@ const UserRow = ({ user, refetch }) => {
       <td>{email}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={makeAdmin} class="btn btn-xs">
+          <button onClick={makeAdmin} className="btn btn-xs">
             Make Admin
           </button>
         )}
       </td>
       <td>
-        <button onClick={removeAdmin} class="btn btn-xs">
+        <button onClick={removeAdmin} className="btn btn-xs">
           Remove User
         </button>
       </td>

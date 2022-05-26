@@ -8,11 +8,11 @@ const Product = ({ product }) => {
     navigate(`/products/${_id}`);
   };
   return (
-    <div class="card bg-base-100 shadow-xl image-full">
+    <div className="card bg-base-100 shadow-xl image-full">
       <figure>
         <img src={img} alt="" />
       </figure>
-      <div class="card-body">
+      <div className="card-body">
         <h2 className="card-title text-slate-200 font-bold">{name}</h2>
         <div className="flex justify-between">
           <h3 className=" text-white text-lg font-semibold">Price:${price}</h3>
@@ -22,11 +22,11 @@ const Product = ({ product }) => {
         </div>
 
         <p>{description}</p>
-        <div class="card-actions justify-between items-center">
+        <div className="card-actions justify-between items-center">
           <h3 className=" text-white text-md font-semibold">
             Minimum Order:{lessOrder}
           </h3>
-          <button onClick={() => handleBuyBtn(_id)} class="btn btn-primary">
+          <button onClick={() => handleBuyBtn(_id)} className="btn btn-primary">
             Buy Now
           </button>
         </div>
