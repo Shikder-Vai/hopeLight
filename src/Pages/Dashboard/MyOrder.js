@@ -44,7 +44,7 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map(
+            {orders?.map(
               (
                 {
                   _id,
